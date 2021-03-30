@@ -13,7 +13,7 @@ namespace homework4.Classes
         Cleaner,
         Guard
     }
-    class Employee
+    public class Employee
     {
         public string Name;
         public Positions Position;

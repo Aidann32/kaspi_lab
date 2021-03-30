@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using homework4.Classes;
 namespace homework4.Classes
 {
-    struct Address
+   public struct Address
     {
         public string Country;
         public string District;
@@ -22,11 +22,10 @@ namespace homework4.Classes
             City = city;
             Street = street;
             BuildingNumber = buildingNumber;
-
         }
     }
    
-    abstract class Warehouse
+    public abstract class Warehouse
     {
         public string Name;
         public Address Address;

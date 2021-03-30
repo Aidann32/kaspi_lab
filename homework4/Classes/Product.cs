@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
 namespace homework4.Classes
 {
     enum Units
@@ -13,7 +13,7 @@ namespace homework4.Classes
         SquareMeters,
         CubicMeters
     }
-    abstract class Product
+    public class Product:IComparable
     {
         // Properties
         public string Name;
@@ -39,6 +39,43 @@ namespace homework4.Classes
             else { Number = number; }
         }
 
-       
+       public Product()
+        {
+
+        }
+
+        public   int CompareTo(object obj)
+        {
+            if(obj is Product)
+            {
+                Product p = (Product)obj;
+                return SKU.CompareTo(p.SKU);
+            }
+            else
+            {
+                throw new ArgumentException("Объект не является объектом класса Product");
+            }
+        }
+
+
+        public override bool Equals(object other)
+        {
+            if(other is Product)
+            {
+                Product p = (Product)other;
+                return this.SKU == p.SKU; 
+            }
+            else
+            {
+                throw new ArgumentException("Объект не является объектом класса Product");
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return SKU.GetHashCode();
+        }
+
+     
     }
 }

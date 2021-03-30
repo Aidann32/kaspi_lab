@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ProductExtension.cs" />
     <Compile Include="Classes\Products\Bulk.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Classes\WarehouseExtension.cs" />
     <Compile Include="Classes\Warehouses\Indoor.cs" />
     <Compile Include="Classes\Products\Liquid.cs" />
     <Compile Include="Classes\Warehouses\Outdoor.cs" />
@@ -58,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

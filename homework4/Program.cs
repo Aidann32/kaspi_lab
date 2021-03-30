@@ -19,8 +19,11 @@ namespace homework4
             Piece p1 = new Piece("Мячи",45632,1000,"Футбольные мячи",90,Units.Pieces);
             Overall ov = new Overall("Диван",64367,100000,"Для дома",40,Units.Pieces);
             Bulk bb = new Bulk("Песок", 43243, 1000, "Строительный песок", 54545, Units.CubicMeters);
+            Console.WriteLine(l1.GetInfo());
+
             o.ProductAdded += OnProductAdded;
             o.IncorrectProductAdded += OnIncorrectProductAdded;
+      
             try
             {
                 o.AddProduct(l1);
@@ -57,16 +60,20 @@ namespace homework4
             finded = o.Search(1234567);
             Console.WriteLine(finded.Description);
 
+
             Address a2 = new Address("KZ", "Almaty", "Almaty", "Abylai khan", "145");
             Console.WriteLine("\nЗакрытый склад:");
             Employee e2 = new Employee("Василий", Positions.Guard);
             Indoor i = new Indoor("Склад2", a2, 3000, e2);
             Bulk b = new Bulk("Песок",46778,1000,"Строительный песок",10000,Units.CubicMeters);
             Liquid l3 = new Liquid("Энергетик",46732,500,"RedBull",100,Units.Liters);
+            Liquid l5 = new Liquid("Вода", 12345, 1000, "Питьевая вода", 10000, Units.Liters);
+
             i.ProductAdded += OnProductAdded;
 
             i.AddProduct(b);
             i.AddProduct(l3);
+            i.AddProduct(l5);
 
             Console.WriteLine("Все товары в закрытом складе:");
             foreach (Product p in i.AllProducts)
@@ -79,8 +86,17 @@ namespace homework4
             {
                 Console.WriteLine($"Тип:{entry.Key}\tКоличество:{entry.Value}");
             }
-            Console.ReadKey();
+            foreach(var j in o.GetIntersection(i))
+            {
+                Console.WriteLine("\n"+j.GetInfo());
+            }
+
+            i.SaveProductsToFile("indoor.csv");
+         
         }
+
+
+        //Event Handlers
         public static void OnProductAdded(object sender, ProductEventArgs e)
         {
             Console.WriteLine($"Продукт {e.product.Name} добавлен на склад");
