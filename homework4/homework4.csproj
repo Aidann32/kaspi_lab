@@ -43,18 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ProductExtension.cs" />
-    <Compile Include="Classes\Products\Bulk.cs" />
+    <Compile Include="Classes\Extensions\ProductExtension.cs" />
+    <Compile Include="Classes\ProductChildrens\Bulk.cs" />
     <Compile Include="Classes\Employee.cs" />
-    <Compile Include="Classes\WarehouseExtension.cs" />
-    <Compile Include="Classes\Warehouses\Indoor.cs" />
-    <Compile Include="Classes\Products\Liquid.cs" />
-    <Compile Include="Classes\Warehouses\Outdoor.cs" />
-    <Compile Include="Classes\Products\Overall.cs" />
-    <Compile Include="Classes\Products\Piece.cs" />
-    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\Extensions\WarehouseExtension.cs" />
+    <Compile Include="Classes\WarehouseChildrens\Indoor.cs" />
+    <Compile Include="Classes\ProductChildrens\Liquid.cs" />
+    <Compile Include="Classes\WarehouseChildrens\Outdoor.cs" />
+    <Compile Include="Classes\ProductChildrens\Overall.cs" />
+    <Compile Include="Classes\ProductChildrens\Piece.cs" />
+    <Compile Include="Classes\Parents\Product.cs" />
     <Compile Include="Classes\EventAgrs\ProductEventArgs.cs" />
-    <Compile Include="Classes\Warehouse.cs" />
+    <Compile Include="Classes\Parents\Warehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

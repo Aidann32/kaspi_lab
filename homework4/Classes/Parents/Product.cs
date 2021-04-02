@@ -21,6 +21,7 @@ namespace homework4.Classes
         public string Description;
         public decimal Price;
         public double Number;
+   
 
         // Methods
         public decimal CountTotalPrice() { return Convert.ToDecimal(Number) * Price; }
@@ -38,12 +39,6 @@ namespace homework4.Classes
             if (number < 0) { throw new Exception("Значение количества не может быть отрицательным числом!"); }
             else { Number = number; }
         }
-
-       public Product()
-        {
-
-        }
-
         public   int CompareTo(object obj)
         {
             if(obj is Product)

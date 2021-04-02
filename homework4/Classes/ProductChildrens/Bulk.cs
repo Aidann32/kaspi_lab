@@ -9,8 +9,8 @@ namespace homework4.Classes
     class Bulk : Product
     {
         //Properties
+
         public Units Unit;
-   
         //Methods
         public Bulk(string name, uint sku, decimal price, string desc, double number,Units unit) 
             :base(name,sku,price,desc,number)
