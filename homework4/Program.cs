@@ -92,7 +92,7 @@ namespace homework4
             }
 
             i.SaveProductsToFile("indoor.csv");
-         
+          
         }
 
 

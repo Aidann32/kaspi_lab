@@ -27,6 +27,7 @@ namespace homework4.Classes
             {
                 AllProducts.Add(p);
                 AllProductsNumber[p.ToString()] += p.Number;
+                SingletonCatalog.Instance.AddToCatalog(p);
                 OnProductAdded(p);
             }
         }
