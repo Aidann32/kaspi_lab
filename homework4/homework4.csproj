@@ -49,6 +49,7 @@
     <Compile Include="Classes\ProductChildrens\Bulk.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Extensions\WarehouseExtension.cs" />
+    <Compile Include="Classes\Reports.cs" />
     <Compile Include="Classes\SingletonCatalog.cs" />
     <Compile Include="Classes\WarehouseChildrens\Indoor.cs" />
     <Compile Include="Classes\ProductChildrens\Liquid.cs" />

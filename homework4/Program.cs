@@ -31,16 +31,14 @@ namespace homework4
             #endregion
 
             Liquid liquid = new Liquid("Beer", 5432, 300, "Baltika", 100, Units.Liters);
-            CommandManager comManager = new CommandManager();
-            comManager.QueueExecuted += OnQueueExecuted;
+            o.CommandManager.QueueExecuted += OnQueueExecuted;
             CommandOnWarehouse command1 = new CommandOnWarehouse(o, liquid);
             CommandOnWarehouse command2 = new CommandOnWarehouse(o, liquid);
             CommandOnWarehouse command3 = new CommandOnWarehouse(o, liquid);
-            comManager.AddCommandToQueue(command1);
-            comManager.AddCommandToQueue(command2);
-            comManager.AddCommandToQueue(command3);
-
-            comManager.ExecuteQueue();
+            o.CommandManager.AddCommandToQueue(command1);
+            o.CommandManager.AddCommandToQueue(command2);
+            o.CommandManager.AddCommandToQueue(command3);
+            o.CommandManager.ExecuteQueue();
 
             #region Adding products to outdoor warehouse and catching exceptions
             try

@@ -35,6 +35,7 @@ namespace homework4.Classes
         public Dictionary<string, double> AllProductsNumber;
         public event EventHandler<ProductEventArgs>ProductAdded;
         public event EventHandler<ProductEventArgs> ProductDeleted;
+        public CommandManager CommandManager = new CommandManager();
         public abstract void AddProduct(Product p);
 
         public  void DeleteProduct(Product p)
