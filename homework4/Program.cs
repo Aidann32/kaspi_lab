@@ -24,8 +24,15 @@ namespace homework4
 
             Console.WriteLine("Информация о воде:");
             Console.WriteLine(l1.GetInfo()+'\n');
+           
+            #region Adding event handlers to outdoor warehouse
+            o.ProductAdded += OnProductAdded;
+            o.IncorrectProductAdded += OnIncorrectProductAdded;
+            #endregion
+
             Liquid liquid = new Liquid("Beer", 5432, 300, "Baltika", 100, Units.Liters);
             CommandManager comManager = new CommandManager();
+            comManager.QueueExecuted += OnQueueExecuted;
             CommandOnWarehouse command1 = new CommandOnWarehouse(o, liquid);
             CommandOnWarehouse command2 = new CommandOnWarehouse(o, liquid);
             CommandOnWarehouse command3 = new CommandOnWarehouse(o, liquid);
@@ -34,10 +41,6 @@ namespace homework4
             comManager.AddCommandToQueue(command3);
 
             comManager.ExecuteQueue();
-            #region Adding event handlers to outdoor warehouse
-            o.ProductAdded += OnProductAdded;
-            o.IncorrectProductAdded += OnIncorrectProductAdded;
-            #endregion
 
             #region Adding products to outdoor warehouse and catching exceptions
             try
