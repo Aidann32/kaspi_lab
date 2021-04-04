@@ -39,7 +39,7 @@ namespace homework4.Classes
             if (number < 0) { throw new Exception("Значение количества не может быть отрицательным числом!"); }
             else { Number = number; }
         }
-        public   int CompareTo(object obj)
+        public int CompareTo(object obj)
         {
             if(obj is Product)
             {

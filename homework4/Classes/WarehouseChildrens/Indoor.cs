@@ -16,6 +16,7 @@ namespace homework4.Classes
             OnProductAdded(p);
         }
 
+        
         public Indoor(string name, Address address, double area, Employee main):base(name,address,area,main)
         {
             AllProductsNumber = new Dictionary<string, double>

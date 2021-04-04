@@ -49,5 +49,6 @@ namespace homework4.Classes
                 IncorrectProductAdded(this, new ProductEventArgs { product = p });
             }
         }
+
     }
 }

@@ -34,8 +34,14 @@ namespace homework4.Classes
         public List<Product> AllProducts=new List<Product> {};
         public Dictionary<string, double> AllProductsNumber;
         public event EventHandler<ProductEventArgs>ProductAdded;
-
+        public event EventHandler<ProductEventArgs> ProductDeleted;
         public abstract void AddProduct(Product p);
+
+        public  void DeleteProduct(Product p)
+        {
+            AllProducts.Remove(p);
+            OnProductDeleted(p);
+        }
 
         public Warehouse(string name, Address address, double area, Employee main)
         {
@@ -89,6 +95,13 @@ namespace homework4.Classes
             if(ProductAdded!=null)
             {
                 ProductAdded(this,new ProductEventArgs { product=p});
+            }
+        }
+        protected virtual void OnProductDeleted(Product p)
+        {
+            if(ProductDeleted!=null)
+            {
+                ProductDeleted(this, new ProductEventArgs { product = p });
             }
         }
     }

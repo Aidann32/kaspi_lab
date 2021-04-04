@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CommandManager.cs" />
+    <Compile Include="Classes\CommandOnWarehouse.cs" />
     <Compile Include="Classes\Extensions\ProductExtension.cs" />
     <Compile Include="Classes\ProductChildrens\Bulk.cs" />
     <Compile Include="Classes\Employee.cs" />
