@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using homework4.Classes;
+using NLog;
 namespace homework4.Classes
 {
    public struct Address
@@ -36,6 +37,7 @@ namespace homework4.Classes
         public event EventHandler<ProductEventArgs>ProductAdded;
         public event EventHandler<ProductEventArgs> ProductDeleted;
         public CommandManager CommandManager = new CommandManager();
+        protected Logger log = LogManager.GetCurrentClassLogger();
         public abstract void AddProduct(Product p);
 
         public  void DeleteProduct(Product p)
@@ -48,13 +50,15 @@ namespace homework4.Classes
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new Exception("Имя пустое или неопределено!");
+                Exception ex = new Exception("Имя пустое или неопределено!");
+                log.Error(ex, ex.Message);
+                throw ex;
             }
             else
             {
                 Name = name;
             }
-            if (area < 0) { throw new Exception("Значение цены не может быть отрицательным числом!"); }
+            if (area < 0) { throw new Exception("Значение площади не может быть отрицательным числом!"); }
             else { Area = area; }
             MainEmployee = main;
             Address = address;      

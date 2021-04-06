@@ -21,13 +21,16 @@ namespace homework4.Classes
             if(p is Bulk)
             {
                 OnIncorrectProductAdded(p);
-                throw new CannotStoreException("В открытые склады нельзя добавлять сыпучие товары!"); 
+                CannotStoreException ex=new CannotStoreException("В открытые склады нельзя добавлять сыпучие товары!");
+                log.Error(ex, ex.Message);
+                throw ex; 
             }
             else 
             {
                 AllProducts.Add(p);
                 AllProductsNumber[p.ToString()] += p.Number;
                 SingletonCatalog.Instance.AddToCatalog(p);
+                log.Debug("Product added to warehouse");
                 OnProductAdded(p);
             }
         }

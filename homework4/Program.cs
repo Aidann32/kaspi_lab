@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using homework4.Classes;
+using NLog;
 namespace homework4
 {
+    
     class Program
     {
         

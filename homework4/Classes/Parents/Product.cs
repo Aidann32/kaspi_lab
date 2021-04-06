@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using NLog;
 namespace homework4.Classes
 {
     enum Units
@@ -21,7 +22,7 @@ namespace homework4.Classes
         public string Description;
         public decimal Price;
         public double Number;
-   
+        protected static Logger log = LogManager.GetCurrentClassLogger();
 
         // Methods
         public decimal CountTotalPrice() { return Convert.ToDecimal(Number) * Price; }
@@ -30,14 +31,31 @@ namespace homework4.Classes
 
         public Product(string name, uint sku, decimal price, string desc, double number)
         {
-            if (string.IsNullOrEmpty(name)) { throw new Exception("Имя пустое или неопределено!"); }
+            if (string.IsNullOrEmpty(name)) 
+            {
+                Exception ex = new Exception("Имя пустое или неопределено!");
+                log.Error(ex, ex.Message);
+                throw ex;
+            }
             else { Name = name; }
-            if (price < 0) { throw new Exception("Значение цены не может быть отрицательным числом!"); }
+            if (price < 0) 
+            { 
+                Exception ex= new Exception("Значение цены не может быть отрицательным числом!");
+                log.Error(ex, ex.Message);
+                throw ex;
+                
+            }
             else { Price = price; }
             SKU = sku;
             Description = desc;
-            if (number < 0) { throw new Exception("Значение количества не может быть отрицательным числом!"); }
+            if (number < 0) 
+            { 
+                Exception ex= new Exception("Значение количества не может быть отрицательным числом!");
+                log.Error(ex,ex.Message);
+                throw ex;
+            }
             else { Number = number; }
+            log.Debug("Product children created");
         }
         public int CompareTo(object obj)
         {
