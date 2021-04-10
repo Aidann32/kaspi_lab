@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using homework4.Classes;
 using NLog;
+
 namespace homework4
 {
     
@@ -127,8 +128,11 @@ namespace homework4
             #endregion
 
             i.SaveProductsToFile("indoor.csv");
-          
+
+            Product.SaveProductAttributesToFile("attributes.txt");
+            
         }
+     
 
 
         //Event Handlers

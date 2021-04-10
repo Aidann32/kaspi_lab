@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using NLog;
+using System.Reflection;
+
 namespace homework4.Classes
 {
     enum Units
@@ -17,9 +19,13 @@ namespace homework4.Classes
     public class Product:IComparable
     {
         // Properties
+        [ProductField("Name")]
         public string Name;
+        [ProductField("SKU")]
         public uint SKU;
+        [ProductField("Description")]
         public string Description;
+        [ProductField("Price")]
         public decimal Price;
         public double Number;
         protected static Logger log = LogManager.GetCurrentClassLogger();
@@ -89,6 +95,32 @@ namespace homework4.Classes
             return SKU.GetHashCode();
         }
 
-     
+        public static void SaveProductAttributesToFile(string fileName)
+        {
+            string binPath = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
+            string filePath = Directory.GetParent(binPath).ToString() + $@"\Files\{fileName}";
+            var type = typeof(Product);
+            var fields = type.GetFields();
+            string template="";
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filePath, false))
+                {
+                    foreach (var prop in type.GetFields())
+                    {
+                        var attrs = prop.GetCustomAttributes(typeof(ProductFieldAttribute), false);
+                        foreach (var i in attrs)
+                        {
+                            template += $"{prop.Name}:{i.ToString()},";
+                        }
+                    }
+                    sw.WriteLine(template);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
